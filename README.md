@@ -5,16 +5,19 @@ flv --> hls/dash
 
 ## UPLOAD Stream
 (flv)
-1.Open OBS and in settings set the server to `rtmp://localhost:1935/live` and the stream key to `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
+1.Open OBS and in settings set the server to `rtmp://localhost:1935/live` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
 2.Use ffmpeg
 ffmpeg -re -i INPUT_FILE_NAME -c copy -f flv rtmp://localhost/live/STREAM_NAME
 ex: ffmpeg -re -i /ToyStory4/ToyStory4.00001.mp4 -c copy -f flv rtmp://140.118.107.174:1935/live/mmlab?key=mmlab
 
 (hls)
-1.Open OBS and in settings set the server to `rtmp://localhost:1935/live` and the stream key to `mmlab?key=mmlab`  `{User}?key={password}`
+1.Open OBS and in settings set the server to `rtmp://localhost:1935/live` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`
 2.Use ffmpeg
 ffmpeg -re -i INPUT_FILE_NAME -c copy -f flv rtmp://localhost/live/STREAM_NAME
 ex: ffmpeg -re -i /ToyStory4/ToyStory4.00001.mp4 -c copy -f flv rtmp://140.118.107.174:1935/live/mmlab?key=mmlab
+
+(dash)
+Same as hls.
 
 ## PULL Stream
 (flv)
