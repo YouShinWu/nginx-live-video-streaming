@@ -40,7 +40,7 @@ http://140.118.107.174:7080/dash/mmlab.mpd
 
 hls and dash can also use on VLC player.
 
-##ABR STREAMING (Adaptive bit-rate streaming)
+## ABR STREAMING (Adaptive bit-rate streaming)
 OBS: Open OBS and in settings set the server to `rtmp://140.118.107.174:1935/src` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
 
             exec ffmpeg -i rtmp://localhost:1935/src/$name
