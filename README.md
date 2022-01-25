@@ -1,5 +1,5 @@
-## How to run
-Live Video Streaming Server based on nginx and Node.js with Authientication
+
+## Live Video Streaming Server based on nginx and Node.js with ABR Streaming
 
 flv --> hls/dash
 
@@ -41,7 +41,10 @@ http://140.118.107.174:7080/dash/mmlab.mpd
 hls and dash can also use on VLC player.
 
 ## ABR STREAMING (Adaptive bit-rate streaming)
+
 OBS: Open OBS and in settings set the server to `rtmp://140.118.107.174:1935/src` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
+
+rtmp://140.118.107.174:1935/src
 
             exec ffmpeg -i rtmp://localhost:1935/src/$name
               -c:a aac -b:a 32k  -c:v libx264 -b:v 128K -f flv rtmp://localhost:1935/live/$name_low
@@ -64,4 +67,30 @@ http://140.118.107.174:7080/dash/mmlab_mid.mpd
 http://140.118.107.174:7080/dash/mmlab_hi.mpd
 
 ## Reference 
-https://github.com/arut/nginx-rtmp-module/wiki/Directives
+1.Docker image: https://github.com/tiangolo/nginx-rtmp-docker 
+2.https://github.com/arut/nginx-rtmp-module/wiki/Directives
+3.Video.js: https://github.com/videojs/http-streaming
+
+## FOR 4k
+
+HEVC -> flv not compatible
+But someone modify flv standard (12bit -> 16bit)
+Not flv standard.
+
+1. h264 4k --> Need big bandwidth     HEVC :24 mb AVC:110 mb
+2. Av1
+
+## ABOUT AV1 codec
+Need lots of cobing time!!!
+https://www.winxdvd.com/video-transcode-tips/av1-hardware-support.htm
+
+ffmpeg av1 : https://ffmpeg.org/ffmpeg-codecs.html#libaom_002dav1
+
+## TODO
+1.Html video player
+2.Server mointer
+
+
+ ffmpeg -re -f lavfi -i testsrc -c:v libx264 -b:v 1600k -preset ultrafast -b 900k -c:a libfdk_aac -b:a 128k -s 1920×1080 -x264opts keyint=50 -g 25 -pix_fmt yuv420p -f flv “rtmp://p.ep246802.i.akamaientrypoint.net/EntryPoint flashver=FMLE/3.020(compatible;20FMSc/1.0) live=true pubUser=123456 pubPasswd=789123 playpath=dclive_1_1@246802”
+
+ ffmpeg -re -i /h265/h264-4k_Batman.00003.mp4 -c copy -f flv rtmp://140.118.107.174:1935/live/mmlab
