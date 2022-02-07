@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="This is a streaming web that can wacth the streaming from different angle of view" />
+        <meta name="author" content="YouShinWU" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MMLabTube</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            video {
+                width: 640px;
+                height: 360px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1><img src="mmlab.png" alt="mmlab logo" width = "200"/>     MMLab Streaming System</h1>
+        <input type="date" />
+    <div class="Whole_video_block">
+        <div class="videoblock1">
+        <h2>MMlab Streaming WebCam 1</h2>
+        <label for="webcam1">WebCam1:</label><br>
+        <input type="text" id="webcam1" placeholder="Streaming Name"/>
+        <video data-dashjs-player autoplay src="http://140.118.107.174:7080/dash/mmlab.mpd" controls>
+        <br/>
+        </div>
+        <hr/> 
+        <div class="videoblock2"> 
+        <h2>MMLab Streaming WebCam 2</h2>
+        <label for="webcam2">WebCam2:</label><br>
+        <input type="text" id="webcam2" placeholder="Streaming Name"/>
+        <video data-dashjs-player autoplay src="http://140.118.107.174:7080/dash2/mmlab.mpd" controls>
+        <br/>
+        </div>
+    </div>
+        <p> Maintainer YouShin Wu</p>
+        <a href="https://github.com/YouShinWu/nginx-live-video-streaming">Github Reference this is a private project</a>
+    <script src=http://cdn.dashjs.org/v3.1.0/dash.all.min.js></script>
+    </body>
+</html>    

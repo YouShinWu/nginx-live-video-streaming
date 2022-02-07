@@ -9,7 +9,10 @@ services:
     volumes:
       - ./hls:/tmp/hls
       - ./dash:/tmp/dash
-
-  auth:
-    build: ./auth
-    container_name: auth_server
+      - ./hls2:/tmp/hls2
+      - ./dash2:/tmp/dash2
+      - ./hevc:/tmp/hevc
+      - ./www:/tmp/www
+  # auth:
+  #   build: ./auth
+  #   container_name: auth_server

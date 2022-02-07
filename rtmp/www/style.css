@@ -1,0 +1,24 @@
+h2{
+    color:navy;
+}
+.Whole_video_block{
+    display:flex;
+    flex-direction:column;
+}
+.Whole_video_block div{
+    border: 2px solid black;
+}
+.videoblock1{
+    flex:1;
+}
+.videoblock2{
+    flex:1;
+}
+
+#webcam1{
+    color:red;
+}
+
+#webcam2{
+    color:blue;
+}
