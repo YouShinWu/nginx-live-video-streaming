@@ -14,7 +14,7 @@ ex: ffmpeg -re -i /ToyStory4/ToyStory4.00001.mp4 -c copy -f flv rtmp://localhost
 1.Open OBS and in settings set the server to `rtmp://localhost:1935/live` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`
 2.Use ffmpeg
 ffmpeg -re -i INPUT_FILE_NAME -c copy -f flv rtmp://localhost/live/STREAM_NAME
-ex: ffmpeg -re -i /ToyStory4/ToyStory4.00001.mp4 -c copy -f flv rtmp://localhost:1935/live/mmlab?key=mmlab
+ex: ffmpeg -re -i /ToyStory4/ToyStory4.00001.mp4 -c copy -f flv rtmp://server_IP:1935/live/mmlab?key=mmlab
 
 (dash)
 Same as hls.
@@ -30,12 +30,12 @@ You should see your live stream now!
 (hls)
 use this link on chrome(need to download Native HLS Playback first: https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof)
 
-http://140.118.107.174:7080/hls/mmlab.m3u8 
+http://server_IP:7080/hls/mmlab.m3u8 
 
 (dash)
 download the MSE(Media Streaming Extention) https://chrome.google.com/webstore/detail/native-mpeg-dash-%2B-hls-pl/cjfbmleiaobegagekpmlhmaadepdeedn/related
 
-http://140.118.107.174:7080/dash/mmlab.mpd
+http://server_IP:7080/dash/mmlab.mpd
 
 
 hls and dash can also use on VLC player.
