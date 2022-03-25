@@ -42,9 +42,9 @@ hls and dash can also use on VLC player.
 
 ## ABR STREAMING (Adaptive bit-rate streaming)
 
-OBS: Open OBS and in settings set the server to `rtmp://140.118.107.174:1935/src` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
+OBS: Open OBS and in settings set the server to `rtmp://serverIP:1935/src` and the stream key is `mmlab?key=mmlab`  `{User}?key={password}`--> User is the stream name
 
-rtmp://140.118.107.174:1935/src/mmlab
+rtmp://server_IP:1935/src/mmlab
 
             exec ffmpeg -i rtmp://localhost:1935/src/$name
               -c:a aac -b:a 32k  -c:v libx264 -b:v 128K -f flv rtmp://localhost:1935/live/$name_low
@@ -58,13 +58,13 @@ rtmp://140.118.107.174:1935/src/mmlab
             hls_variant _hi  BANDWIDTH=640000;
 
 (hls)
-http://140.118.107.174:7080/hls/mmlab.m3u8 
+http://server_IP:7080/hls/mmlab.m3u8 
 
 
 (dash)
-http://140.118.107.174:7080/dash/mmlab_low.mpd
-http://140.118.107.174:7080/dash/mmlab_mid.mpd
-http://140.118.107.174:7080/dash/mmlab_hi.mpd
+http://server_IP:7080/dash/mmlab_low.mpd
+http://server_IP:7080/dash/mmlab_mid.mpd
+http://server_IP:7080/dash/mmlab_hi.mpd
 
 ## Reference 
 1.Docker image: https://github.com/tiangolo/nginx-rtmp-docker 
@@ -108,7 +108,7 @@ https://support.google.com/youtube/answer/1722171?hl=zh-Hant#zippy=%2C%E9%9F%B3%
 
  ffmpeg -re -f lavfi -i testsrc -c:v libx264 -b:v 1600k -preset ultrafast -b 900k -c:a libfdk_aac -b:a 128k -s 1920×1080 -x264opts keyint=50 -g 25 -pix_fmt yuv420p -f flv “rtmp://p.ep246802.i.akamaientrypoint.net/EntryPoint flashver=FMLE/3.020(compatible;20FMSc/1.0) live=true pubUser=123456 pubPasswd=789123 playpath=dclive_1_1@246802”
 
- ffmpeg -re -i /h265/h264-4k_Batman.00003.mp4 -c copy -f flv rtmp://140.118.107.174:1935/live/mmlab
+ ffmpeg -re -i /h265/h264-4k_Batman.00003.mp4 -c copy -f flv rtmp://server_IP:1935/live/mmlab
 
 
  ffmpeg -i input
